@@ -10,9 +10,9 @@ Pydantic) writes the whole dialogue, including the simulated learner, who holds 
 misconception the assistant must surface through questions alone.
 
 Usage:
-    python generate_sft_dataset.py --dry-run --mock                 # offline, no API key needed
-    python generate_sft_dataset.py --provider gemini --dry-run      # 3 live samples, printed
-    python generate_sft_dataset.py --provider groq -n 500           # append to sft_dataset.jsonl
+    python scripts/generate_sft_dataset.py --dry-run --mock                 # offline, no API key needed
+    python scripts/generate_sft_dataset.py --provider gemini --dry-run      # 3 live samples, printed
+    python scripts/generate_sft_dataset.py --provider groq -n 500           # append to data/sft_dataset.jsonl
     (re-run the same command to resume: seeds already in the file are skipped)
 
 Keys (env): GEMINI_API_KEY / GROQ_API_KEY, or comma-separated GEMINI_API_KEYS / GROQ_API_KEYS.
@@ -36,7 +36,8 @@ import anthropic
 import openai
 from pydantic import BaseModel, Field, ValidationError, field_validator, model_validator
 
-OUTPUT_PATH = Path("sft_dataset.jsonl")
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+OUTPUT_PATH = DATA_DIR / "sft_dataset.jsonl"
 # provider -> (default model, OpenAI-compat base_url or None, default RPM, key env prefix)
 PROVIDERS = {
     "anthropic": ("claude-opus-5-5", None, 50, "ANTHROPIC"),
@@ -550,15 +551,24 @@ async def run(seeds: list[Seed], args) -> list[dict]:
     return results
 
 
+def load_rows() -> list[dict]:
+    return [json.loads(l) for l in OUTPUT_PATH.read_text(encoding="utf-8").splitlines() if l.strip()]
+
+
+def held_out_topics(rows: list[dict], eval_frac: float = 0.2) -> set[str]:
+    """Eval topics, picked by hash so the split is stable. Shared by all three adapters' datasets."""
+    import hashlib, math
+    topics = sorted({r["metadata"]["topic"] for r in rows}, key=lambda t: hashlib.sha256(t.encode()).hexdigest())
+    return set(topics[: max(1, math.ceil(len(topics) * eval_frac))])
+
+
 def export_splits(eval_frac: float = 0.2) -> None:
     """Write sft_train.jsonl / sft_eval.jsonl (messages only) split BY TOPIC, so near-duplicate dialogues never straddle the split."""
-    import hashlib, math
-    rows = [json.loads(l) for l in OUTPUT_PATH.read_text(encoding="utf-8").splitlines() if l.strip()]
-    topics = sorted({r["metadata"]["topic"] for r in rows}, key=lambda t: hashlib.sha256(t.encode()).hexdigest())
-    held = set(topics[: max(1, math.ceil(len(topics) * eval_frac))])
+    rows = load_rows()
+    held = held_out_topics(rows, eval_frac)
     for name, pick in (("sft_train.jsonl", lambda t: t not in held), ("sft_eval.jsonl", lambda t: t in held)):
         out = [{"messages": r["messages"]} for r in rows if pick(r["metadata"]["topic"])]
-        Path(name).write_text("".join(json.dumps(o, ensure_ascii=False) + "\n" for o in out), encoding="utf-8")
+        (DATA_DIR / name).write_text("".join(json.dumps(o, ensure_ascii=False) + "\n" for o in out), encoding="utf-8")
         print(f"{name}: {len(out)} rows", file=sys.stderr)
     print(f"held-out topics ({len(held)}): {sorted(held)}", file=sys.stderr)
 

@@ -9,3 +9,8 @@ wheels/
 # Virtual environments
 .venv
 .env
+
+# Jupyter / training outputs
+.ipynb_checkpoints/
+outputs/
+*_lora/

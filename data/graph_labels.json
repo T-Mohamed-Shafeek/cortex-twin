@@ -1,0 +1,702 @@
+{
+ "0": {
+  "llm_call_loop": "known",
+  "tool_observation_cycle": "known",
+  "stop_condition": "missing",
+  "step_budget": "missing",
+  "failure_exit_handling": "missing"
+ },
+ "1": {
+  "structured_tool_request": "missing",
+  "runtime_executes_tools": "missing",
+  "argument_validation": "untested",
+  "tool_error_feedback": "untested",
+  "retry_policy": "missing"
+ },
+ "2": {
+  "context_window": "missing",
+  "statelessness_of_llm_calls": "missing",
+  "persistent_store": "missing",
+  "retrieval_into_context": "untested",
+  "memory_write_policy": "untested"
+ },
+ "3": {
+  "single_agent_loop": "untested",
+  "task_decomposition": "shaky",
+  "coordination_cost": "shaky",
+  "error_compounding": "missing",
+  "orchestrator_design": "untested"
+ },
+ "4": {
+  "plan_generation": "shaky",
+  "plan_execution": "shaky",
+  "observation_feedback": "missing",
+  "replanning_trigger": "missing",
+  "plan_vs_reactive_tradeoff": "missing"
+ },
+ "5": {
+  "instruction_vs_data_channels": "known",
+  "tool_output_as_untrusted_input": "known",
+  "prompt_injection_attack": "shaky",
+  "tool_privilege_scoping": "missing",
+  "defense_in_depth": "missing"
+ },
+ "6": {
+  "final_answer_quality": "known",
+  "trajectory_inspection": "missing",
+  "cost_and_latency_metrics": "shaky",
+  "failure_mode_taxonomy": "missing",
+  "regression_test_set": "known"
+ },
+ "7": {
+  "agent_action_risk": "shaky",
+  "destructive_vs_irreversible_actions": "missing",
+  "cost_and_data_exposure_risk": "missing",
+  "approval_gate_placement": "missing",
+  "reviewer_fatigue": "untested"
+ },
+ "8": {
+  "context_window_limit": "known",
+  "attention_degradation_with_length": "missing",
+  "summarization": "missing",
+  "retrieval_of_past_steps": "untested",
+  "context_budgeting": "shaky"
+ },
+ "9": {
+  "tool_side_effects": "shaky",
+  "failure_ambiguity": "shaky",
+  "idempotency_key": "shaky",
+  "safe_vs_unsafe_retry": "missing",
+  "action_logging": "untested"
+ },
+ "10": {
+  "text_to_vector": "known",
+  "vector_space_geometry": "shaky",
+  "cosine_similarity": "shaky",
+  "similarity_vs_relevance": "missing",
+  "query_document_asymmetry": "missing"
+ },
+ "11": {
+  "document_splitting": "known",
+  "chunk_size_tradeoff": "missing",
+  "context_loss_at_boundaries": "shaky",
+  "overlap_and_structure_aware_chunking": "untested",
+  "chunk_evaluation": "untested"
+ },
+ "12": {
+  "exact_nearest_neighbor_search": "shaky",
+  "speed_recall_tradeoff": "missing",
+  "graph_or_cluster_index": "shaky",
+  "recall_tuning_parameters": "untested",
+  "measuring_ann_recall": "missing"
+ },
+ "13": {
+  "dense_retrieval": "shaky",
+  "keyword_matching_bm25": "missing",
+  "exact_term_failure_of_dense": "missing",
+  "score_fusion": "untested",
+  "when_hybrid_helps": "missing"
+ },
+ "14": {
+  "first_stage_retrieval": "shaky",
+  "candidate_recall_ceiling": "missing",
+  "cross_encoder_scoring": "shaky",
+  "rerank_cost_latency": "shaky",
+  "candidate_pool_sizing": "untested"
+ },
+ "15": {
+  "retrieval_step": "known",
+  "generation_conditioned_on_context": "shaky",
+  "ungrounded_generation": "missing",
+  "citation_and_grounding_checks": "untested",
+  "abstention_when_unsupported": "missing"
+ },
+ "16": {
+  "embedding_model_identity": "shaky",
+  "vector_space_per_model": "missing",
+  "mixed_model_index_problem": "missing",
+  "full_reindex": "missing",
+  "versioned_index_migration": "untested"
+ },
+ "17": {
+  "vector_search_basics": "known",
+  "metadata_attributes": "known",
+  "pre_filtering": "missing",
+  "post_filtering_result_loss": "shaky",
+  "filter_selectivity_cost": "shaky"
+ },
+ "18": {
+  "retrieval_recall": "known",
+  "answer_correctness": "missing",
+  "retrieval_vs_generation_failures": "missing",
+  "component_level_evaluation": "missing",
+  "evaluation_dataset_design": "untested"
+ },
+ "19": {
+  "retrieved_context_size": "shaky",
+  "recall_vs_precision_in_k": "missing",
+  "noise_distracting_the_model": "missing",
+  "context_budget_limit": "shaky",
+  "tuning_k_empirically": "untested"
+ },
+ "20": {
+  "request_failure_modes": "missing",
+  "timeout_ambiguity": "missing",
+  "retry_side_effects": "shaky",
+  "idempotency_keys": "untested",
+  "retry_backoff_and_limits": "untested"
+ },
+ "21": {
+  "network_partitions": "shaky",
+  "consistency_definition": "shaky",
+  "availability_definition": "shaky",
+  "partition_time_tradeoff": "missing",
+  "normal_operation_latency_tradeoff": "untested"
+ },
+ "22": {
+  "replication": "shaky",
+  "strong_consistency": "untested",
+  "eventual_consistency": "missing",
+  "convergence_guarantee": "missing",
+  "read_your_writes_and_session_guarantees": "untested"
+ },
+ "23": {
+  "at_most_once_delivery": "untested",
+  "at_least_once_delivery": "shaky",
+  "duplicate_messages": "shaky",
+  "consumer_idempotency": "missing",
+  "exactly_once_effect": "missing"
+ },
+ "24": {
+  "cache_hit_and_miss": "untested",
+  "ttl_expiry": "known",
+  "stale_reads": "shaky",
+  "invalidation_strategies": "missing",
+  "stampede_and_consistency_risks": "untested"
+ },
+ "25": {
+  "table_scan": "untested",
+  "index_lookup": "shaky",
+  "index_write_cost": "shaky",
+  "index_selection_and_redundancy": "untested",
+  "query_plan_inspection": "untested"
+ },
+ "26": {
+  "overload_behavior": "shaky",
+  "rate_limiting": "known",
+  "queueing_and_buffering": "untested",
+  "backpressure_signaling": "missing",
+  "load_shedding_policy": "missing"
+ },
+ "27": {
+  "acid_in_single_database": "untested",
+  "two_phase_commit": "shaky",
+  "coordinator_blocking_failure": "missing",
+  "saga_pattern": "untested",
+  "compensating_actions": "untested"
+ },
+ "28": {
+  "vertical_vs_horizontal_scaling": "shaky",
+  "stateless_services": "missing",
+  "shared_state_bottleneck": "missing",
+  "load_balancing": "shaky",
+  "scaling_limits": "missing"
+ },
+ "29": {
+  "wall_clock_time": "known",
+  "clock_skew_and_drift": "shaky",
+  "event_ordering": "shaky",
+  "logical_clocks": "untested",
+  "leader_election_and_fencing": "untested"
+ },
+ "30": {
+  "llm_call_loop": "shaky",
+  "tool_observation_cycle": "known",
+  "stop_condition": "missing",
+  "step_budget": "missing",
+  "failure_exit_handling": "untested"
+ },
+ "31": {
+  "structured_tool_request": "missing",
+  "runtime_executes_tools": "missing",
+  "argument_validation": "untested",
+  "tool_error_feedback": "untested",
+  "retry_policy": "untested"
+ },
+ "32": {
+  "context_window": "shaky",
+  "statelessness_of_llm_calls": "missing",
+  "persistent_store": "missing",
+  "retrieval_into_context": "untested",
+  "memory_write_policy": "untested"
+ },
+ "33": {
+  "single_agent_loop": "untested",
+  "task_decomposition": "shaky",
+  "coordination_cost": "missing",
+  "error_compounding": "missing",
+  "orchestrator_design": "shaky"
+ },
+ "34": {
+  "plan_generation": "shaky",
+  "plan_execution": "shaky",
+  "observation_feedback": "missing",
+  "replanning_trigger": "missing",
+  "plan_vs_reactive_tradeoff": "missing"
+ },
+ "35": {
+  "instruction_vs_data_channels": "shaky",
+  "tool_output_as_untrusted_input": "shaky",
+  "prompt_injection_attack": "shaky",
+  "tool_privilege_scoping": "untested",
+  "defense_in_depth": "missing"
+ },
+ "36": {
+  "final_answer_quality": "shaky",
+  "trajectory_inspection": "missing",
+  "cost_and_latency_metrics": "missing",
+  "failure_mode_taxonomy": "untested",
+  "regression_test_set": "untested"
+ },
+ "37": {
+  "agent_action_risk": "shaky",
+  "destructive_vs_irreversible_actions": "shaky",
+  "cost_and_data_exposure_risk": "missing",
+  "approval_gate_placement": "missing",
+  "reviewer_fatigue": "untested"
+ },
+ "38": {
+  "context_window_limit": "known",
+  "attention_degradation_with_length": "missing",
+  "summarization": "untested",
+  "retrieval_of_past_steps": "missing",
+  "context_budgeting": "shaky"
+ },
+ "39": {
+  "tool_side_effects": "known",
+  "failure_ambiguity": "shaky",
+  "idempotency_key": "untested",
+  "safe_vs_unsafe_retry": "missing",
+  "action_logging": "untested"
+ },
+ "40": {
+  "text_to_vector": "shaky",
+  "vector_space_geometry": "missing",
+  "cosine_similarity": "shaky",
+  "similarity_vs_relevance": "missing",
+  "query_document_asymmetry": "untested"
+ },
+ "41": {
+  "document_splitting": "known",
+  "chunk_size_tradeoff": "missing",
+  "context_loss_at_boundaries": "shaky",
+  "overlap_and_structure_aware_chunking": "missing",
+  "chunk_evaluation": "untested"
+ },
+ "42": {
+  "exact_nearest_neighbor_search": "untested",
+  "speed_recall_tradeoff": "missing",
+  "graph_or_cluster_index": "shaky",
+  "recall_tuning_parameters": "shaky",
+  "measuring_ann_recall": "shaky"
+ },
+ "43": {
+  "dense_retrieval": "shaky",
+  "keyword_matching_bm25": "untested",
+  "exact_term_failure_of_dense": "missing",
+  "score_fusion": "untested",
+  "when_hybrid_helps": "missing"
+ },
+ "44": {
+  "first_stage_retrieval": "shaky",
+  "candidate_recall_ceiling": "shaky",
+  "cross_encoder_scoring": "known",
+  "rerank_cost_latency": "shaky",
+  "candidate_pool_sizing": "shaky"
+ },
+ "45": {
+  "retrieval_step": "shaky",
+  "generation_conditioned_on_context": "shaky",
+  "ungrounded_generation": "missing",
+  "citation_and_grounding_checks": "missing",
+  "abstention_when_unsupported": "untested"
+ },
+ "46": {
+  "embedding_model_identity": "missing",
+  "vector_space_per_model": "missing",
+  "mixed_model_index_problem": "missing",
+  "full_reindex": "shaky",
+  "versioned_index_migration": "untested"
+ },
+ "47": {
+  "vector_search_basics": "known",
+  "metadata_attributes": "shaky",
+  "pre_filtering": "shaky",
+  "post_filtering_result_loss": "shaky",
+  "filter_selectivity_cost": "missing"
+ },
+ "48": {
+  "retrieval_recall": "shaky",
+  "answer_correctness": "missing",
+  "retrieval_vs_generation_failures": "missing",
+  "component_level_evaluation": "missing",
+  "evaluation_dataset_design": "untested"
+ },
+ "49": {
+  "retrieved_context_size": "shaky",
+  "recall_vs_precision_in_k": "missing",
+  "noise_distracting_the_model": "missing",
+  "context_budget_limit": "shaky",
+  "tuning_k_empirically": "untested"
+ },
+ "50": {
+  "request_failure_modes": "missing",
+  "timeout_ambiguity": "shaky",
+  "retry_side_effects": "shaky",
+  "idempotency_keys": "shaky",
+  "retry_backoff_and_limits": "untested"
+ },
+ "51": {
+  "network_partitions": "untested",
+  "consistency_definition": "shaky",
+  "availability_definition": "untested",
+  "partition_time_tradeoff": "missing",
+  "normal_operation_latency_tradeoff": "missing"
+ },
+ "52": {
+  "replication": "shaky",
+  "strong_consistency": "untested",
+  "eventual_consistency": "missing",
+  "convergence_guarantee": "shaky",
+  "read_your_writes_and_session_guarantees": "shaky"
+ },
+ "53": {
+  "at_most_once_delivery": "untested",
+  "at_least_once_delivery": "known",
+  "duplicate_messages": "shaky",
+  "consumer_idempotency": "missing",
+  "exactly_once_effect": "missing"
+ },
+ "54": {
+  "cache_hit_and_miss": "untested",
+  "ttl_expiry": "known",
+  "stale_reads": "known",
+  "invalidation_strategies": "missing",
+  "stampede_and_consistency_risks": "missing"
+ },
+ "55": {
+  "table_scan": "untested",
+  "index_lookup": "known",
+  "index_write_cost": "shaky",
+  "index_selection_and_redundancy": "missing",
+  "query_plan_inspection": "untested"
+ },
+ "56": {
+  "overload_behavior": "missing",
+  "rate_limiting": "shaky",
+  "queueing_and_buffering": "missing",
+  "backpressure_signaling": "missing",
+  "load_shedding_policy": "shaky"
+ },
+ "57": {
+  "acid_in_single_database": "untested",
+  "two_phase_commit": "shaky",
+  "coordinator_blocking_failure": "untested",
+  "saga_pattern": "shaky",
+  "compensating_actions": "shaky"
+ },
+ "58": {
+  "vertical_vs_horizontal_scaling": "shaky",
+  "stateless_services": "untested",
+  "shared_state_bottleneck": "missing",
+  "load_balancing": "untested",
+  "scaling_limits": "missing"
+ },
+ "59": {
+  "wall_clock_time": "shaky",
+  "clock_skew_and_drift": "known",
+  "event_ordering": "shaky",
+  "logical_clocks": "untested",
+  "leader_election_and_fencing": "untested"
+ },
+ "60": {
+  "sampling_and_temperature": "missing",
+  "greedy_decoding": "shaky",
+  "nondeterminism_sources": "missing",
+  "tool_and_environment_variance": "shaky",
+  "reproducibility_strategy": "untested"
+ },
+ "61": {
+  "prompted_json": "shaky",
+  "schema_validation": "missing",
+  "constrained_decoding": "untested",
+  "parse_failure_handling": "shaky",
+  "retry_with_repair": "untested"
+ },
+ "62": {
+  "raw_user_query": "missing",
+  "query_retrieval_mismatch": "missing",
+  "rewriting_and_expansion": "missing",
+  "conversation_context_resolution": "missing",
+  "rewrite_evaluation": "untested"
+ },
+ "63": {
+  "embedding_vector_size": "known",
+  "information_capacity_of_dimensions": "missing",
+  "storage_and_latency_cost": "shaky",
+  "curse_of_dimensionality": "untested",
+  "dimension_choice_by_evaluation": "missing"
+ },
+ "64": {
+  "acid_properties": "missing",
+  "concurrent_transactions": "missing",
+  "read_anomalies": "missing",
+  "isolation_level_choice": "missing",
+  "serializable_cost": "untested"
+ },
+ "65": {
+  "connection_cost": "untested",
+  "pool_size": "missing",
+  "database_concurrency_limits": "missing",
+  "pool_exhaustion_and_queuing": "shaky",
+  "pool_sizing_by_measurement": "untested"
+ },
+ "76": {
+  "llm_call_loop": "known",
+  "tool_observation_cycle": "known",
+  "stop_condition": "shaky",
+  "step_budget": "missing",
+  "failure_exit_handling": "untested"
+ },
+ "77": {
+  "structured_tool_request": "shaky",
+  "runtime_executes_tools": "shaky",
+  "argument_validation": "untested",
+  "tool_error_feedback": "untested",
+  "retry_policy": "untested"
+ },
+ "78": {
+  "context_window": "missing",
+  "statelessness_of_llm_calls": "missing",
+  "persistent_store": "untested",
+  "retrieval_into_context": "untested",
+  "memory_write_policy": "untested"
+ },
+ "79": {
+  "single_agent_loop": "untested",
+  "task_decomposition": "shaky",
+  "coordination_cost": "missing",
+  "error_compounding": "shaky",
+  "orchestrator_design": "untested"
+ },
+ "66": {
+  "llm_call_loop": "known",
+  "tool_observation_cycle": "known",
+  "stop_condition": "known",
+  "step_budget": "known",
+  "failure_exit_handling": "known"
+ },
+ "67": {
+  "structured_tool_request": "known",
+  "runtime_executes_tools": "known",
+  "argument_validation": "known",
+  "tool_error_feedback": "known",
+  "retry_policy": "known"
+ },
+ "68": {
+  "context_window": "known",
+  "statelessness_of_llm_calls": "known",
+  "persistent_store": "known",
+  "retrieval_into_context": "known",
+  "memory_write_policy": "known"
+ },
+ "69": {
+  "plan_generation": "known",
+  "plan_execution": "known",
+  "observation_feedback": "known",
+  "replanning_trigger": "known",
+  "plan_vs_reactive_tradeoff": "known"
+ },
+ "70": {
+  "document_splitting": "known",
+  "chunk_size_tradeoff": "known",
+  "context_loss_at_boundaries": "known",
+  "overlap_and_structure_aware_chunking": "known",
+  "chunk_evaluation": "known"
+ },
+ "71": {
+  "exact_nearest_neighbor_search": "known",
+  "speed_recall_tradeoff": "known",
+  "graph_or_cluster_index": "known",
+  "recall_tuning_parameters": "known",
+  "measuring_ann_recall": "known"
+ },
+ "72": {
+  "first_stage_retrieval": "known",
+  "candidate_recall_ceiling": "known",
+  "cross_encoder_scoring": "known",
+  "rerank_cost_latency": "known",
+  "candidate_pool_sizing": "known"
+ },
+ "73": {
+  "request_failure_modes": "known",
+  "timeout_ambiguity": "known",
+  "retry_side_effects": "known",
+  "idempotency_keys": "known",
+  "retry_backoff_and_limits": "known"
+ },
+ "74": {
+  "at_most_once_delivery": "known",
+  "at_least_once_delivery": "known",
+  "duplicate_messages": "known",
+  "consumer_idempotency": "known",
+  "exactly_once_effect": "known"
+ },
+ "75": {
+  "cache_hit_and_miss": "known",
+  "ttl_expiry": "known",
+  "stale_reads": "known",
+  "invalidation_strategies": "known",
+  "stampede_and_consistency_risks": "known"
+ },
+ "80": {
+  "instruction_vs_data_channels": "shaky",
+  "tool_output_as_untrusted_input": "shaky",
+  "prompt_injection_attack": "shaky",
+  "tool_privilege_scoping": "untested",
+  "defense_in_depth": "untested"
+ },
+ "81": {
+  "final_answer_quality": "known",
+  "trajectory_inspection": "missing",
+  "cost_and_latency_metrics": "untested",
+  "failure_mode_taxonomy": "untested",
+  "regression_test_set": "untested"
+ },
+ "82": {
+  "agent_action_risk": "shaky",
+  "destructive_vs_irreversible_actions": "shaky",
+  "cost_and_data_exposure_risk": "shaky",
+  "approval_gate_placement": "shaky",
+  "reviewer_fatigue": "shaky"
+ },
+ "83": {
+  "request_failure_modes": "missing",
+  "timeout_ambiguity": "shaky",
+  "retry_side_effects": "shaky",
+  "idempotency_keys": "shaky",
+  "retry_backoff_and_limits": "untested"
+ },
+ "84": {
+  "cache_hit_and_miss": "untested",
+  "ttl_expiry": "known",
+  "stale_reads": "shaky",
+  "invalidation_strategies": "missing",
+  "stampede_and_consistency_risks": "untested"
+ },
+ "85": {
+  "network_partitions": "known",
+  "consistency_definition": "shaky",
+  "availability_definition": "shaky",
+  "partition_time_tradeoff": "missing",
+  "normal_operation_latency_tradeoff": "missing"
+ },
+ "86": {
+  "structured_tool_request": "untested",
+  "runtime_executes_tools": "missing",
+  "argument_validation": "untested",
+  "tool_error_feedback": "untested",
+  "retry_policy": "shaky"
+ },
+ "87": {
+  "text_to_vector": "known",
+  "vector_space_geometry": "shaky",
+  "cosine_similarity": "shaky",
+  "similarity_vs_relevance": "shaky",
+  "query_document_asymmetry": "untested"
+ },
+ "88": {
+  "request_failure_modes": "untested",
+  "timeout_ambiguity": "untested",
+  "retry_side_effects": "shaky",
+  "idempotency_keys": "shaky",
+  "retry_backoff_and_limits": "untested"
+ },
+ "89": {
+  "context_window": "untested",
+  "statelessness_of_llm_calls": "missing",
+  "persistent_store": "missing",
+  "retrieval_into_context": "untested",
+  "memory_write_policy": "untested"
+ },
+ "90": {
+  "vector_search_basics": "untested",
+  "metadata_attributes": "untested",
+  "pre_filtering": "untested",
+  "post_filtering_result_loss": "untested",
+  "filter_selectivity_cost": "untested"
+ },
+ "91": {
+  "vertical_vs_horizontal_scaling": "shaky",
+  "stateless_services": "untested",
+  "shared_state_bottleneck": "untested",
+  "load_balancing": "untested",
+  "scaling_limits": "missing"
+ },
+ "92": {
+  "retrieved_context_size": "shaky",
+  "recall_vs_precision_in_k": "missing",
+  "noise_distracting_the_model": "missing",
+  "context_budget_limit": "untested",
+  "tuning_k_empirically": "missing"
+ },
+ "93": {
+  "network_partitions": "shaky",
+  "consistency_definition": "shaky",
+  "availability_definition": "shaky",
+  "partition_time_tradeoff": "shaky",
+  "normal_operation_latency_tradeoff": "untested"
+ },
+ "94": {
+  "final_answer_quality": "shaky",
+  "trajectory_inspection": "missing",
+  "cost_and_latency_metrics": "untested",
+  "failure_mode_taxonomy": "untested",
+  "regression_test_set": "untested"
+ },
+ "95": {
+  "embedding_model_identity": "missing",
+  "vector_space_per_model": "missing",
+  "mixed_model_index_problem": "missing",
+  "full_reindex": "untested",
+  "versioned_index_migration": "untested"
+ },
+ "96": {
+  "replication": "shaky",
+  "strong_consistency": "untested",
+  "eventual_consistency": "shaky",
+  "convergence_guarantee": "shaky",
+  "read_your_writes_and_session_guarantees": "untested"
+ },
+ "97": {
+  "tool_side_effects": "known",
+  "failure_ambiguity": "missing",
+  "idempotency_key": "untested",
+  "safe_vs_unsafe_retry": "missing",
+  "action_logging": "untested"
+ },
+ "98": {
+  "table_scan": "untested",
+  "index_lookup": "known",
+  "index_write_cost": "missing",
+  "index_selection_and_redundancy": "missing",
+  "query_plan_inspection": "untested"
+ },
+ "99": {
+  "context_window_limit": "shaky",
+  "attention_degradation_with_length": "missing",
+  "summarization": "missing",
+  "retrieval_of_past_steps": "missing",
+  "context_budgeting": "shaky"
+ }
+}
